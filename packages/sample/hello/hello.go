@@ -1,11 +1,28 @@
 package main
 
-func Main(args map[string]interface{}) map[string]interface{} {
-	name, ok := args["name"].(string)
-	if !ok {
-		name = "stranger"
+import (
+	"errors"
+	"fmt"
+)
+
+type Request struct {
+	Location string `json:"location"`
+}
+
+type Response struct {
+	StatusCode int
+	Headers    map[string]string
+	Body       string `json:"body"`
+}
+
+func Main(in Request) (*Response, error) {
+	if in.Location == "" {
+		return nil, errors.New("location must be passed")
 	}
-	msg := make(map[string]interface{})
-	msg["body"] = "Hello " + name + "!"
-	return msg
+
+	loc := fmt.Sprintf("Hello, from %s", in.Location)
+
+	return &Response{
+		Body: loc,
+	}, nil
 }
