@@ -10,9 +10,9 @@ type Request struct {
 }
 
 type Response struct {
-	StatusCode int
-	Headers    map[string]string
-	Body       string `json:"body"`
+	StatusCode int `json:"statusCode,omitempty"`
+	Headers    map[string]string `json:"headers,omitempty"`
+	Body       string `json:"body,omitempty"`
 }
 
 func Main(in Request) (*Response, error) {
@@ -20,9 +20,7 @@ func Main(in Request) (*Response, error) {
 		return nil, errors.New("location must be passed")
 	}
 
-	loc := fmt.Sprintf("Hello, from %s", in.Location)
-
 	return &Response{
-		Body: loc,
+		Body: fmt.Sprintf("Hello, from %s", in.Location),
 	}, nil
 }
