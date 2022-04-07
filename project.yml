@@ -1,5 +1,13 @@
+parameters: {}
+environment: {}
 packages:
   - name: sample
+    environment: {}
+    parameters: {}
     actions:
       - name: hello
+        main: ''
         runtime: 'go:default'
+        environment: {}
+        parameters: {}
+
