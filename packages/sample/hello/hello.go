@@ -1,26 +1,25 @@
 package main
 
 import (
-	"errors"
 	"fmt"
 )
 
 type Request struct {
-	Location string `json:"location"`
+	Name string `json:"name"`
 }
 
 type Response struct {
-	StatusCode int `json:"statusCode,omitempty"`
+	StatusCode int               `json:"statusCode,omitempty"`
 	Headers    map[string]string `json:"headers,omitempty"`
-	Body       string `json:"body,omitempty"`
+	Body       string            `json:"body,omitempty"`
 }
 
 func Main(in Request) (*Response, error) {
-	if in.Location == "" {
-		return nil, errors.New("location must be passed")
+	if in.Name == "" {
+		in.Name = "stranger"
 	}
 
 	return &Response{
-		Body: fmt.Sprintf("Hello, from %s", in.Location),
+		Body: fmt.Sprintf("Hello %s", in.Name),
 	}, nil
 }
