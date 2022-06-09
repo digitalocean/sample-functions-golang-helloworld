@@ -1,13 +1,14 @@
-alerts:
-- rule: DEPLOYMENT_FAILED
-- rule: DOMAIN_FAILED
-functions:
-- github:
-    branch: master
-    deploy_on_push: true
-    repo: digitalocean/sample-functions-golang-helloworld
-  name: go-api
-  routes:
-  - path: /
-  source_dir: /
-name: go-helloworld
+spec:
+  alerts:
+  - rule: DEPLOYMENT_FAILED
+  - rule: DOMAIN_FAILED
+  functions:
+  - github:
+      branch: master
+      deploy_on_push: true
+      repo: digitalocean/sample-functions-golang-helloworld
+    name: go-api
+    routes:
+    - path: /
+    source_dir: /
+  name: go-helloworld
