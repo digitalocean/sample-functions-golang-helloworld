@@ -20,6 +20,6 @@ func Main(in Request) (*Response, error) {
 	}
 
 	return &Response{
-		Body: fmt.Sprintf("Hello %s", in.Name),
+		Body: fmt.Sprintf("Hello %s!", in.Name),
 	}, nil
 }

@@ -35,7 +35,7 @@ doctl serverless functions invoke sample/hello
 ```
 ```json
 {
-  "body": "Hello stranger"
+  "body": "Hello stranger!"
 }
 ```
 ```bash
@@ -43,7 +43,7 @@ doctl serverless functions invoke sample/hello -p name:Sammy
 ```
 ```json
 {
-  "body": "Hello Sammy"
+  "body": "Hello Sammy!"
 }
 ```
 
